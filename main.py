@@ -2,10 +2,10 @@ def getPivot(number):
     avg = (number[0] + number[1] + number[2] + number[3] + number[4] + number[5]) // 5
     
     pivot = number[0]
-    mindiff = number[0] - avg
+    mindiff = abs(number[0] - avg)
     
     for num in number[1:]:
-        difference = num - avg
+        difference = abs(num - avg)
         if difference < mindiff:
             mindiff = difference
             pivot = num   
@@ -23,7 +23,7 @@ def split(number):
         else:
             right_sublist.append(x)
             
-    new_list = left_sublist + pivot + right_sublist
+    new_list = left_sublist + [pivot] + right_sublist
     return new_list
             
     
