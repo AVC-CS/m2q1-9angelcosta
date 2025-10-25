@@ -1,5 +1,6 @@
 def getPivot(number):
-    avg = (number[0] + number[1] + number[2] + number[3] + number[4] + number[5]) // 5
+    total_sum = sum(number)
+    avg = total_sum / len(number)
     
     pivot = number[0]
     mindiff = abs(number[0] - avg)
@@ -12,26 +13,22 @@ def getPivot(number):
             
     return pivot
     
-left_sublist = []
-right_sublist = []
+
     
 def split(number):
-    pivot = getPivot(number)
-    for x in number[1:]:
-        if x <= pivot:
-            left_sublist.append(x)
-        else:
-            right_sublist.append(x)
-            
-    new_list = left_sublist + [pivot] + right_sublist
-    return new_list
-            
+    left_sub = []
+    right_sub = []
+    middle = []
     
-    """
-    ########################################
-    Code Your Program here
-    ########################################
-    """
+    for num in number:
+        if num < pivot:
+            left_sub.append(num)
+        elif num == pivot:
+            middle.append(num)
+        else:
+            right_sub.append(num)
+    return left_sub + middle + right_sub
+            
 
 
 def main():
