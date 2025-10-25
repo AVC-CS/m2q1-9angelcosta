@@ -1,8 +1,14 @@
 def getPivot(number):
     avg = (number[0] + number[1] + number[2] + number[3] + number[4] + number[5]) // 5
+    
+    closenum = number[0]
+    mindiff = number[0] - avg
+    
     for num in number[1:]:
-        difference = abs(num - avg)
-        if difference     
+        difference = num - avg
+        if difference < mindiff:
+            mindiff = difference
+            closenum = num   
     """
     ########################################
     Code Your Program here
