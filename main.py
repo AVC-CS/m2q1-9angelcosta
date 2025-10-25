@@ -16,6 +16,7 @@ left_sublist = []
 right_sublist = []
     
 def split(number):
+    pivot = getPivot(number)
     for x in number[1:]:
         if x <= pivot:
             left_sublist.append(x)
