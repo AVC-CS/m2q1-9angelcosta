@@ -2,23 +2,24 @@ def getPivot(number):
     total_sum = sum(number)
     avg = total_sum / len(number)
     
-    pivot = number[0]
+    closenum = number[0]
     mindiff = abs(number[0] - avg)
     
     for num in number[1:]:
         difference = abs(num - avg)
         if difference < mindiff:
             mindiff = difference
-            pivot = num   
+            closenum = num   
             
-    return pivot
+    return closenum
     
 
     
 def split(number):
+    pivot = getPivot(number)
     left_sub = []
-    right_sub = []
     middle = []
+    right_sub = []
     
     for num in number:
         if num < pivot:
